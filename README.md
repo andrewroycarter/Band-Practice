@@ -34,7 +34,7 @@ book.json
 
 ```json
 {
-  "name": "TMC Greatest Hits",
+  "name": "Name Of Music Book",
   "songs": [
     {
       "title": "Tile Here",
