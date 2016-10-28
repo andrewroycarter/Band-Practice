@@ -81,7 +81,7 @@ class PDFRenderer {
             fontSize = fontSize - 1.0
         } while (
             string.boundingRect(with: size, options: options).height > page.height
-                && fontSize > 8.0
+                && fontSize > 5.0
         )
     }
     
