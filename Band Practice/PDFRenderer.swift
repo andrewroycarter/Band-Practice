@@ -78,10 +78,10 @@ class PDFRenderer {
                 string.addAttributes(attributes, range: chord.range)
             }
             
-            fontSize = fontSize - 1.0
+            fontSize = fontSize - 0.25
         } while (
             string.boundingRect(with: size, options: options).height > page.height
-                && fontSize > 5.0
+                && fontSize >= 1.0
         )
     }
     

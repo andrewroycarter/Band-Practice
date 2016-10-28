@@ -21,3 +21,18 @@ struct Song {
         
     }
 }
+
+extension Song: Equatable {
+    public static func ==(lhs: Song, rhs: Song) -> Bool {
+        return lhs.title == rhs.title
+    }
+}
+
+extension Song: Comparable {
+
+    public static func <(lhs: Song, rhs: Song) -> Bool {
+        return lhs.title < rhs.title 
+    }
+
+    
+}

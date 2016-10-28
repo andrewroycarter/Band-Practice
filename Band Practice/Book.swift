@@ -26,7 +26,7 @@ struct Book {
         let sortedArtists = artists.sorted()
         
         self.songs = sortedArtists.reduce([Song]()) { (result, artist) -> [Song] in
-            return result + songs.filter { $0.artist.lowercased() == artist.lowercased() }
+            return result + songs.filter { $0.artist.lowercased() == artist.lowercased() }.sorted()
         }
     }
 }
