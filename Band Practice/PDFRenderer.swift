@@ -33,12 +33,12 @@ class PDFRenderer {
     func appendHeader(for song: Song, to string: NSMutableAttributedString) {
         string.append(NSAttributedString(string: "\(song.title)\n", attributes:  [
             NSForegroundColorAttributeName: NSColor.black,
-            NSFontAttributeName: NSFont.monospacedDigitSystemFont(ofSize: 15.0, weight: 1.0)
+            NSFontAttributeName:  NSFont(name: "Courier-Bold", size: 15)!
             ]))
         
         string.append(NSAttributedString(string: "\(song.artist)\n\n", attributes: [
             NSForegroundColorAttributeName: NSColor.gray,
-            NSFontAttributeName: NSFont.monospacedDigitSystemFont(ofSize: 10.0, weight: 0.0)
+            NSFontAttributeName:  NSFont(name: "Courier", size: 10.0)!
             ]))
     }
     
@@ -48,7 +48,7 @@ class PDFRenderer {
         let bodyRange = NSMakeRange(string.string.characters.count, song.body.characters.count)
         let bodyAttributes = [
             NSForegroundColorAttributeName: NSColor.black,
-            NSFontAttributeName: NSFont.monospacedDigitSystemFont(ofSize: fontSize, weight: 0.0)
+            NSFontAttributeName:  NSFont(name: "Courier", size: fontSize)!
         ]
         string.append(NSAttributedString(string: song.body, attributes: bodyAttributes))
         
@@ -70,11 +70,11 @@ class PDFRenderer {
         }
         
         repeat {
-            let attributes = [NSFontAttributeName: NSFont.monospacedDigitSystemFont(ofSize: fontSize, weight: 0.0)]
+            let attributes = [NSFontAttributeName: NSFont(name: "Courier", size: fontSize)!]
             string.addAttributes(attributes, range: bodyRange)
             
             chords.forEach { chord in
-                let attributes = [NSFontAttributeName: NSFont.monospacedDigitSystemFont(ofSize: fontSize, weight: 1.0)]
+                let attributes = [NSFontAttributeName: NSFont(name: "Courier-Bold", size: fontSize)!]
                 string.addAttributes(attributes, range: chord.range)
             }
             
@@ -102,7 +102,7 @@ class PDFRenderer {
         
         let string = NSAttributedString(string: book.name,
                                         attributes: [
-                                            NSFontAttributeName: NSFont.systemFont(ofSize: 30.0),
+                                            NSFontAttributeName:  NSFont(name: "Courier-Bold", size: 30.0)!,
                                             NSParagraphStyleAttributeName: style
             ])
         string.draw(in: page.drawableRect)
